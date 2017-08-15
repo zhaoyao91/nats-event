@@ -22,7 +22,7 @@ natsEvent.listen('hello', msg => console.log(msg))
 
 natsEvent.send('test.hello', 'Bob')
 
-natsMethod.close()
+natsEvent.close()
 ```
 
 ## License
