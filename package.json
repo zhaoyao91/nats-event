@@ -1,6 +1,6 @@
 {
   "name": "nats-event",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "help emit and handle events by nats",
   "main": "index.js",
   "author": "zhaoyao91 <zhaoyao91@163.com>",
