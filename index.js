@@ -1,4 +1,5 @@
 const NATS = require('nats')
+const logger = require('env-pino')
 
 const defaultOptions = {
   url: 'nats://localhost:4222',
@@ -16,14 +17,14 @@ module.exports = function connect (options) {
 
   // define default event handlers
   nats.on('error', (err) => {
-    console.error(err)
+    logger.error(err)
     process.exit(-1)
   })
-  nats.on('connect', () => console.log('event nats connected'))
-  nats.on('disconnect', () => console.log('event nats disconnected'))
-  nats.on('reconnecting', () => console.log('event nats reconnecting'))
-  nats.on('reconnect', () => console.log('event nats reconnected'))
-  nats.on('close', () => console.log('event nats connection closed'))
+  nats.on('connect', () => logger.info('event nats connected'))
+  nats.on('disconnect', () => logger.info('event nats disconnected'))
+  nats.on('reconnecting', () => logger.info('event nats reconnecting'))
+  nats.on('reconnect', () => logger.info('event nats reconnected'))
+  nats.on('close', () => logger.info('event nats connection closed'))
 
   let eventPrefix = null
   let queueGroup = null
