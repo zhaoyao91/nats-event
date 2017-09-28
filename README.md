@@ -14,7 +14,6 @@ npm install --save nats-event
 const connectNats = require('nats-event')
 
 const natsEvent = connectNats('nats://localhost:4222')
-  .setEventPrefix('test') // optional
   .setQueueGroup('test') // optional, but you should provide it if you want to launch multiple instances.
     
 natsEvent.listen('hello', msg => console.log(msg))
